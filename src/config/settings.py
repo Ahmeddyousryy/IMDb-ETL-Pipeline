@@ -1,0 +1,14 @@
+import sqlalchemy
+
+DATA_SOURCES =  {
+
+    'IMDb_movie_titles'  : 'datasets/movie_titles.csv',
+    'IMDb_movie_ratings' : 'datasets/movie_ratings.csv',
+    'IMDb_name_basics'   : 'datasets/name_basics.csv',
+    'IMDb_movie_crew'    : 'datasets/title_crew.csv',
+    'TMDb_movie_info'    : 'datasets/TMDB_movies.csv'
+}
+
+DATA_BASE_CONNECTION_URL = "postgresql+psycopg://postgres:Mema@localhost:5432/movies_data_warehouse"
+
+sql_engine = sqlalchemy.create_engine(DATA_BASE_CONNECTION_URL)
