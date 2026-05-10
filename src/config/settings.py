@@ -12,3 +12,14 @@ DATA_SOURCES =  {
 DATA_BASE_CONNECTION_URL = "postgresql+psycopg://postgres:Mema@localhost:5432/movies_data_warehouse"
 
 sql_engine = sqlalchemy.create_engine(DATA_BASE_CONNECTION_URL)
+
+
+BRONZE_LAYER_TABLES = {
+
+    'IMDb_movie_titles'  : 'imdb_movie_titles',
+    'IMDb_movie_ratings' : 'imdb_movie_ratings',
+    'IMDb_name_basics'   : 'imdb_name_basic',
+    'IMDb_movie_crew'    : 'imdb_movie_crew',
+    'TMDb_movie_info'    : 'tmdb_movies'
+
+}
