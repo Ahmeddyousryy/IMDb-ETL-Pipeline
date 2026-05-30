@@ -31,6 +31,29 @@ CREATE TABLE silver.imdb_movie_titles (
 );
 
 
+DROP TABLE IF EXISTS silver.imdb_name_basics;
+CREATE TABLE silver.imdb_name_basics(
+	director_id VARCHAR(50),
+	director_name VARCHAR(50),
+	birth_year INT,
+	death_year INT
+);
 
+DROP TABLE IF EXISTS silver.imdb_movie_ratings;
+CREATE TABLE silver.imdb_movie_ratings (
+	movie_id VARCHAR(50),
+	average_rating FLOAT,
+	votes INT
+);
+
+
+
+DROP TABLE IF EXISTS silver.imdb_movie_crew;
+CREATE TABLE silver.imdb_movie_crew (
+	movie_id VARCHAR(50),
+	director_id VARCHAR(50)
+);
+
+SELECT * FROM silver.imdb_movie_crew
 
 

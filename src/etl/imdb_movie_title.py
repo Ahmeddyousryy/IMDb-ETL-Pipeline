@@ -84,8 +84,9 @@ def transform(df):
         # merge with genres_df from above to map gerne into the surrogate keys created
         .merge(genres_df, left_on='genres', right_on='genre')
 
+        .rename(columns={'tconst':'movie_id'})
         # final bridge schema
-        [['tconst', 'genre_id']]
+        [['movie_id', 'genre_id']]
     )
 
 
