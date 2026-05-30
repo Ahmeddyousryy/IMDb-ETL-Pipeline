@@ -54,6 +54,4 @@ CREATE TABLE silver.imdb_movie_crew (
 	director_id VARCHAR(50)
 );
 
-SELECT * FROM silver.imdb_movie_crew
-
 
