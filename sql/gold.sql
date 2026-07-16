@@ -46,6 +46,7 @@ CREATE TABLE gold.dim_movie AS
 		is_adult
 	FROM silver.imdb_movie_titles;
 
+
 DROP TABLE IF EXISTS gold.dim_genre;
 CREATE TABLE gold.dim_genre AS
 	SELECT
@@ -76,10 +77,9 @@ CREATE TABLE gold.fact_movie_performance AS
 		average_rating,
 		votes
 	FROM gold.dim_movie gv 
-	LEFT JOIN silver.tmdb_movies tv ON gv.movie_id = tv.imdb_id
-	RIGHT JOIN silver.imdb_movie_ratings mr ON mr.movie_id = gv.movie_id
-	RIGHT JOIN gold.dim_date gd ON gd.movie_id = gv.movie_id
-	RIGHT JOIN silver.imdb_movie_crew mc ON mc.movie_id = gv.movie_id
-	RIGHT JOIN gold.dim_director gdir ON gdir.director_id = mc.director_id
+	JOIN silver.tmdb_movies tv ON gv.movie_id = tv.imdb_id
+	JOIN silver.imdb_movie_ratings mr ON mr.movie_id = gv.movie_id
+	JOIN gold.dim_date gd ON gd.movie_id = gv.movie_id
+	JOIN silver.imdb_movie_crew mc ON mc.movie_id = gv.movie_id
+	JOIN gold.dim_director gdir ON gdir.director_id = mc.director_id
 	ORDER BY movie_key;
-
