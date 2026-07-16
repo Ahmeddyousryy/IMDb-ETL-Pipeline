@@ -1,3 +1,15 @@
+/*
+========================================================================
+DDL Scripts : Create the Tables of the silver layer
+========================================================================
+
+Script Purpose :
+	This script creates tables in the silver schema, first it checks
+	if they already exists, if so they are dropped
+
+	Run this script to re-define the DDL of the 'SILVER' Tables
+
+*/
 
 DROP TABLE IF EXISTS silver.tmdb_movies;
 CREATE TABLE silver.tmdb_movies (
