@@ -83,3 +83,12 @@ CREATE TABLE gold.fact_movie_performance AS
 	JOIN silver.imdb_movie_crew mc ON mc.movie_id = gv.movie_id
 	JOIN gold.dim_director gdir ON gdir.director_id = mc.director_id
 	ORDER BY movie_key;
+
+
+CREATE TABLE gold.bridge_movie_genre_ratio AS
+	SELECT
+		movie_key,
+		genre_key,
+		ROUND(1.0 / COUNT(*) OVER (PARTITION BY movie_key),2) AS allocate_factor
+	FROM gold.bridge_movie_genre
+	
