@@ -49,14 +49,18 @@ def transform(df):
         # Keep only valid historical releases
         .loc[lambda x: x["release_date"] <= pd.Timestamp.today()]
 
-        # Remove unrealistic budget values
-        .loc[lambda x: x["budget"] < 600000000]
-        .loc[lambda x: x["budget"] > 100]
+        # # Remove unrealistic budget values
+        # .loc[lambda x: x["budget"] < 600000000]
+        # .loc[lambda x: x["budget"] > 10]
 
-        # Remove unrealistic revenue values
-        .loc[lambda x: x["revenue"] < 3000000000]
-        .loc[lambda x: x["revenue"] > 100]
+        # # Remove unrealistic revenue values
+        # .loc[lambda x: x["revenue"] < 3000000000]
+        # .loc[lambda x: x["revenue"] > 10]
+        
     )
+    df.loc[(df['revenue'] < 1000) , 'revenue'] = pd.NA                     
+    df.loc[(df['budget'] < 1000) , 'budget'] = pd.NA    
+
     return df
 
 

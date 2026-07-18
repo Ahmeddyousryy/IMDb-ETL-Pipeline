@@ -5,6 +5,6 @@ from config.settings import sql_engine
 import pipelines.utils.transform as transform
 
 
-# run_bronze_layer()
+run_bronze_layer()
 
-# run_silver_layer()
+run_silver_layer()
